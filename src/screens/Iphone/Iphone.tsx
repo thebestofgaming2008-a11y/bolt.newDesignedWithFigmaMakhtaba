@@ -72,7 +72,16 @@ export const Iphone = (): JSX.Element => {
   const [cartCount, setCartCount] = useState(0);
 
   const subjectCards = useMemo(
-    () => [{ title: "Aqeedah" }, { title: "Hadith" }, { title: "Fiqh" }],
+    () => [
+      { title: "Aqeedah" },
+      { title: "Hadith" },
+      { title: "Fiqh" },
+      { title: "Tafseer" },
+      { title: "Seerah" },
+      { title: "Arabic" },
+      { title: "Usool" },
+      { title: "Nahw" },
+    ],
     [],
   );
 
@@ -179,19 +188,19 @@ export const Iphone = (): JSX.Element => {
               Master the sciences level by level
             </p>
 
-            <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
-              {subjectCards.map((item, index) => (
-                <article key={`${item.title}-${index}`} className="flex flex-col items-center">
-                  <div className="mb-2 sm:mb-3 flex w-full items-center justify-center gap-1 sm:gap-2">
-                    {index === 0 && <ChevronLeftIcon inverted />}
-                    <h3 style={playfair} className="text-sm sm:text-base lg:text-lg font-normal tracking-tight text-white">
-                      {item.title}
-                    </h3>
-                    <ChevronRightIcon inverted />
-                  </div>
-                  <div className="aspect-[2/3] w-full bg-white" />
-                </article>
-              ))}
+            <div className="mt-6 sm:mt-8 -mx-4 sm:-mx-8 lg:-mx-16 overflow-x-auto scrollbar-hide">
+              <div className="flex gap-2 sm:gap-3 px-4 sm:px-8 lg:px-16 pb-2" style={{ width: "max-content" }}>
+                {subjectCards.map((item, index) => (
+                  <article key={`${item.title}-${index}`} className="flex flex-col items-center shrink-0 w-[7.5rem] sm:w-36 lg:w-44">
+                    <div className="mb-2 sm:mb-3 flex w-full items-center justify-center gap-1">
+                      <h3 style={playfair} className="text-sm sm:text-base lg:text-lg font-normal tracking-tight text-white">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <div className="aspect-[2/3] w-full bg-white" />
+                  </article>
+                ))}
+              </div>
             </div>
 
             {/* Our Picks */}
